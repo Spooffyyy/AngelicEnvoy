@@ -1,0 +1,54 @@
+
+#⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+#⠀⠀⠀⠀⣠⣶⡾⠏⠉⠙⠳⢦⡀⠀⠀⠀⢠⠞⠉⠙⠲⡀⠀
+#⠀⠀⠀⣴⠿⠏⠀⠀⠀⠀⠀⠀⢳⡀⠀⡏⠀⠀⠀⠀⠀⢷
+#⠀⠀⢠⣟⣋⡀⢀⣀⣀⡀⠀⣀⡀⣧⠀⢸⠀⠀⠀⠀⠀ ⡇
+#⠀⠀⢸⣯⡭⠁⠸⣛⣟⠆⡴⣻⡲⣿⠀⣸⠀⠀OK⠀ ⡇
+#⠀⠀⣟⣿⡭⠀⠀⠀⠀⠀⢱⠀⠀⣿⠀⢹⠀⠀⠀⠀⠀ ⡇
+#⠀⠀⠙⢿⣯⠄⠀⠀⠀⢀⡀⠀⠀⡿⠀⠀⡇⠀⠀⠀⠀⡼
+#⠀⠀⠀⠀⠹⣶⠆⠀⠀⠀⠀⠀⡴⠃⠀⠀⠘⠤⣄⣠⠞⠀
+#⠀⠀⠀⠀⠀⢸⣷⡦⢤⡤⢤⣞⣁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+#⠀⠀⢀⣤⣴⣿⣏⠁⠀⠀⠸⣏⢯⣷⣖⣦⡀⠀⠀⠀⠀⠀⠀
+#⢀⣾⣽⣿⣿⣿⣿⠛⢲⣶⣾⢉⡷⣿⣿⠵⣿⠀⠀⠀⠀⠀⠀
+#⣼⣿⠍⠉⣿⡭⠉⠙⢺⣇⣼⡏⠀⠀⠀⣄⢸⠀⠀⠀⠀⠀⠀
+#⣿⣿⣧⣀⣿.........⣀⣰⣏⣘⣆⣀⠀⠀
+#
+summonFireworks: true
+registerFireworks: true #false if u already have a pl for it
+countdown: 20 #secunde
+fireworktick: 20 #secunde
+Areas:
+    MyArea:
+        Pos1: 
+            X: 22
+            Z: 44
+        Pos2:
+            X: 55
+            Z: 66
+        Level: "World"
+        StartTime: "Mon-16-23" #Day-Hour-minute or "Monday-E-60" every hour ,"E-20"(here i mean every 20 minutes)
+        Envoys:
+            Common: #u can add what name u want even with colour (§)
+                NumberChestSpawned: 6
+                NumberOfItemsExtraged: 3
+                Items: ["1:0"]#id:meta:count:echantid:enchlevel
+            Rare: #u can add what name u want even with colour (§)
+                NumberChestSpawned: 6
+                NumberOfItemsExtraged: 3
+                Items: []#id:meta:count:echantid:lvl
+                
+  ##### U can add more Areas #####              
+    MyArea2:
+        Pos1: 
+            X: 22
+            Z: 44
+        Pos2:
+            X: 55
+            Z: 66
+        Level: "World"
+        StartTime: "Mon-16-23" #Day-Hour-minute or "Monday-EveryHour" or "EveryHour" or "Every-20"(here i mean minutes)
+        Envoys:
+            Common: #u can add what name u want even with colour (§)
+                NumberChestSpawned: 6
+                NumberOfItemsExtraged: 3
+                Items: []#id:meta:echantid
