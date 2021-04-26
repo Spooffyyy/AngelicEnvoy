@@ -1,0 +1,11 @@
+name: AngelicEnvoy
+
+main: BlackAngels56\AngelicEnvoy\Main
+
+version: 0.0.1
+
+api: 3.18.0
+
+load: POSTWORLD
+
+author: BlackAngels56
