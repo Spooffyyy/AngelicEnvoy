@@ -16,20 +16,20 @@ use pocketmine\nbt\tag\ByteArrayTag;
 use pocketmine\tile\Chest;
 use pocketmine\item\ItemFactory;
 use pocketmine\block\Chest as C;
-use pocketmine\level\Position;
+use pocketmine\world\Position;
 use pocketmine\item\enchantment\Enchantment;
 use pocketmine\item\enchantment\EnchantmentInstance;
 use ReflectionProperty;
 use ReflectionClass;
-use pocketmine\level\Level;
-use pocketmine\level\particle\FloatingTextParticle;
+use pocketmine\world\World;
+use pocketmine\world\particle\FloatingTextParticle;
 use pocketmine\Server;
 use pocketmine\entity\Entity;
 use pocketmine\item\Item;
 use pocketmine\math\Vector3;
 use pocketmine\network\mcpe\protocol\AddPlayerPacket;
 use pocketmine\network\mcpe\protocol\RemoveActorPacket;
-use pocketmine\Player;
+use pocketmine\player\Player;
 use pocketmine\network\mcpe\protocol\UpdateBlockPacket;
 use pocketmine\utils\UUID;
 use pocketmine\network\mcpe\protocol\types\inventory\ItemStackWrapper;
@@ -161,7 +161,7 @@ $i->addEnchantment($enchInstance);
         $this->stopTask();
         $this->inventory->removeAllViewers(true);
         $this->dropItems();
-        $this->getLevel()->getChunkAtPosition($this, true)->setBlock($this->x & 0x0f , $this->y, $this->z & 0x0f  , 0, 0);
+        $this->getWorld()->getChunkAtPosition($this, true)->setBlock($this->x & 0x0f , $this->y, $this->z & 0x0f  , 0, 0);
         $this->updateBlocks($this);
         parent::close();
 
@@ -183,21 +183,21 @@ $i->addEnchantment($enchInstance);
 	$block = $this->getBlock($pos);
 	$block->onScheduledUpdate();
 	$block->clearCaches(); 
-	$chunk = $this->getLevel()->getChunkAtPosition($pos, true);
-$pl = $pos->getLevel()->getChunkPlayers($chunk->getX(), $chunk->getZ());
-	$pos->getLevel()->sendBlocks($pl, [$block], UpdateBlockPacket::FLAG_ALL);	
+	$chunk = $this->getWorld()->getChunkAtPosition($pos, true);
+$pl = $pos->getWorld()->getChunkPlayers($chunk->getX(), $chunk->getZ());
+	$pos->getWorld()->sendBlocks($pl, [$block], UpdateBlockPacket::FLAG_ALL);	
       
   }
 
     public function run(){
         $this->showname = false;
-$level = $this->getLevel();
-if($level == null){
+$world = $this->getWorld();
+if($world == null){
     $this->close();
     return;
 }
-$chunk =$this->getLevel()->getChunkAtPosition($this, true);;
-$players = $this->getLevel()->getChunkPlayers($chunk->getX(), $chunk->getZ());
+$chunk =$this->getWorld()->getChunkAtPosition($this, true);;
+$players = $this->getWorld()->getChunkPlayers($chunk->getX(), $chunk->getZ());
 if($players != null){
     foreach ($players as $p){
         if((int)$this->distance($p->getPosition()) <= 5){
@@ -226,7 +226,7 @@ public function spawnFireworks($pos){
         $motion = new Vector3(0.001, 0.05, 0.001);
 	    $yaw = lcg_value() * 360;
 	    $pitch = 90;
-	    $level = $pos->getLevel();
+	    $world = $pos->getWorld();
     	    $nbt =new CompoundTag("", [
 			new ListTag("Pos", [
 				new DoubleTag("", $pos->x),
