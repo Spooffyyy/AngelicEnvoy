@@ -2,10 +2,10 @@ name: AngelicEnvoy
 
 main: BlackAngels56\AngelicEnvoy\Main
 
-version: 0.0.1
+version: 0.0.2
 
-api: 3.18.0
+api: 5.0.0
 
 load: POSTWORLD
 
-author: BlackAngels56
+author: BlackAngels56, Terpz710
